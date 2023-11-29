@@ -1,0 +1,130 @@
+<!-- register.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barrio&display=swap">
+  <style>
+    body {
+      font-family: 'Barrio', cursive;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background: url("C:/Users/neela/Downloads/pawn-56265_1280.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #000;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    .welcome-message {
+      padding: 50px;
+      width: 60%;
+    }
+
+    .welcome-message h2 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 8px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      font-family: 'Barrio', cursive;
+      font-size: 18px;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #000;
+      color: white;
+      border: none;
+    }
+
+    .login-link {
+      margin-top: 15px;
+      color: white;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="C:\Users\neela\Downloads\check.png" alt="Company Logo">
+  </header>
+
+  <div class="welcome-message">
+    <h2>Register for CHECKMATE</h2>
+    <form id="registrationForm" action="loginw.html" method="get" onsubmit="return validateForm()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+      <div class="error-message" id="passwordError"></div>
+
+      <button type="submit">Register</button>
+
+      <p class="login-link" onclick="location.href='loginw.html'">Already have an account? Login here.</p>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (password !== confirmPassword) {
+        document.getElementById('passwordError').innerText = 'Passwords do not match.';
+        return false;
+      } else {
+        document.getElementById('passwordError').innerText = '';
+        return true;
+      }
+    }
+  </script>
+
+</body>
+</html>
